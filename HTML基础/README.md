@@ -1,11 +1,11 @@
 # HTML 基础
 
 ### 什么是 HTML
-Hyper Text Markup Language,超文本标记语言
-通常是以  `.html` 或  `.htm` 为文件后缀名
+Hyper Text Markup Language,超文本标记语言</br>
+通常是以  `.html` 或  `.htm` 为文件后缀名</br>
 超文本：由一组特殊效果的文本组成。例如：`<a>` 超链接，`<b>`文本加粗
 ### HTML 语法
-* 标记（元素）
+* 标记（元素）</br>
 组成页面的最基本元素，不同的标记有不同显示效果。语法  <> 
 	- 封闭类型（双标记）,例如：`<b>文本</b>`,又开始也要有结束，注意：该类型一开始就要写一对
 	- 非封闭类型（单标记），例如 ` <br/>` => 换行，`<img />` => 图片
@@ -70,26 +70,26 @@ Hyper Text Markup Language,超文本标记语言
 ### URL (Uniform Resource Locator)
 同意资源定位器，用于描述“资源文件”位置的一种方式，其表现方式有三种：
 * 绝对路径：
-- 访问网络资源
-由 协议名、主机名(IP地址)、目录路径、文件名称
-`https://www.baidu.com/img/bd_logo1.png`
-协议名：http 或 https
-主机名：IP地址，域名
-`www.xxx.com`
-目录路径：资源文件所在的文件夹路径
-	- 访问本机资源
- 从 文件所在的最高级 目录下一层一层查找
-`E:\Course\01_HTML5BASIC\03_SRC\COOKBOOK\WEB_HTML5BASIC_COOKBOOK_DAY01\images\page.JPG`
-缺点：程序一旦发生位置改变，要保证新计算机中也要有对应的绝对路径和文件。
+	- 访问网络资源</br>
+	由 协议名、主机名(IP地址)、目录路径、文件名称
+	`https://www.baidu.com/img/bd_logo1.png`
+	协议名：http 或 https</br>
+	主机名：IP地址，域名
+	`www.xxx.com`
+	目录路径：资源文件所在的文件夹路径
+	- 访问本机资源</br>
+	 从 文件所在的最高级 目录下一层一层查找
+	`E:\Course\01_HTML5BASIC\03_SRC\COOKBOOK\WEB_HTML5BASIC_COOKBOOK_DAY01\images\page.JPG`
+	缺点：程序一旦发生位置改变，要保证新计算机中也要有对应的绝对路径和文件。
 * 相对路径，相对于当前文件所在位置查找资源：
-	- 同目录下
+	- 同目录下</br>
 	         通过 文件名称 引用文件
-	- 父目录下
+	- 父目录下</br>
 	           先返回，再查找资源文件，如：`../ : 向上返回一级目录`
-	- 子目录下
-	           先进入到文件夹中，再查找资源文件：目录名/目录名/文件名
+	- 子目录下</br>
+	           先进入到文件夹中，再查找资源文件：目录名/目录名/文件名</br>
 注意：相对路径是通过 文件间的位置关系进行查找的。只要位置关系不变，任何资源文件都能找到。
-* 根相对路径
+* 根相对路径</br>
 永远都是从web站点的根目录处开始查找，以 / 作为开始的路径都是根相对路径，`/img/a1.jpg`
 ### 图像
 * 格式：
@@ -109,13 +109,13 @@ Hyper Text Markup Language,超文本标记语言
 	- href： 链接URL(相对/绝对/根相对)
 	- target：目标：即打开新网页的方式，取值：_blank : 新标签页中打开；_self : 在自身标签页中打开(默认值)
 * 链接表现形式
-	- 1、目标文档为下载资源：
+	- 1、目标文档为下载资源：</br>
 		链接目标为 *.rar 或 *.zip时就是下载操作
-	- 电子邮件链接
+	- 电子邮件链接</br>
 		前提：必须有邮件客户端 ( Foxmail,Outlook ) ，绑定账号
 		`<a href="mailto:目标邮件地址">联系我们</a>`
 	- 、返回页面顶部的空链接
 		`<a href="#">返回顶部</a>`
-	- 链接到 Javascript
+	- 链接到 Javascript</br>
 	  	即 执行JS操作
 	    `<a href="javascript:void(0);">执行JS</a>`
