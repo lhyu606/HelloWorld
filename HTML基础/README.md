@@ -23,7 +23,7 @@ Hyper Text Markup Language,超文本标记语言
 为方便阅读理解，通常内嵌元素缩进
 3. 属性和值（以下内容标记一般称元素）
 * 不同的元素会有不同的属性，来定义元素状态
-* 语法：<标记  属性=值  属性=值 > 内容   </标记>。属性，如：align 定义元素文本内容的水平对齐方式，值，对应于 align 有：left => 左对齐,center => 居中对齐,right => 右对齐。完整的：<p align='center'>Hello World....</p>
+* 语法：<标记  属性=值  属性=值 > 内容   </标记>。属性，如：align 定义元素文本内容的水平对齐方式，值，对应于 align 有：left => 左对齐,center => 居中对齐,right => 右对齐。完整的：`<p align='center'>Hello World....</p>`
 一般标准属性： 
 - id：定义元素在页面内的唯一标识
 - title：鼠标移入当前元素是会出现的提示内容
@@ -31,8 +31,8 @@ Hyper Text Markup Language,超文本标记语言
 - style：定义当前元素的行内样式
 4. 注释
 * 作用：不会被浏览器所解析
-* 语法：<!-- 注释内容 -->
-* 注意：不能放在开始标记中：<p <!-- 注释内容 --> ></p> 这是错误的；注释不能嵌套 <!-- <!-- 注释内容 -->注释内容 -->，这也是错误的
+* 语法：`<!-- 注释内容 -->`
+* 注意：不能放在开始标记中：`<p <!-- 注释内容 --> ></p>` 这是错误的；注释不能嵌套 `<!-- <!-- 注释内容 -->注释内容 -->`，这也是错误的
 5. 文档结构
 * 文档声明类型：
 ```
@@ -41,17 +41,17 @@ Hyper Text Markup Language,超文本标记语言
 * html 页面  ：
 ```
 <html>
-	<head></head>
-	<body></body>
+<head></head>
+<body></body>
 </html>
 ```
 其中 head 是网页头元素， body 是网页显示主体
 * head 元素中包括：`<title>定义网页标题</title>`，meta ：
-	- 定义编码格式 `<meta charset='utf-8'>` 
-	- 定义网页关键字	`<meta name='keywords' content='关键字1，关键字2'>`
-	- 定义网页描述 `<meta name='description' content='需要描述的内容'>`
+- 定义编码格式 `<meta charset='utf-8'>` 
+- 定义网页关键字	`<meta name='keywords' content='关键字1，关键字2'>`
+- 定义网页描述 `<meta name='description' content='需要描述的内容'>`
 6. 文本
-* 特殊字符，例如：&nbsp; => 空格，&lt; => <,&gt; => >,&copy; => ©,&yen; => ¥
+* 特殊字符，例如：`&nbsp;` => 空格，`&lt;` => <,`&gt;` => >,`&copy;` => ©,`&yen;` => ¥
 * 样式元素：
 `<b></b>`加粗
 `<i></i>`倾斜
@@ -64,7 +64,7 @@ Hyper Text Markup Language,超文本标记语言
 * 换行元素：`<br/>`
 * 块分区元素：`<div></div>`网页布局作用，可以嵌套任意元素
 * 行分区元素：`<span></span>`行内布局和分区
-###### 行内元素与块级元素
+##### 行内元素与块级元素
 - 行内元素：多个元素在一行内显示，修饰文本，如：span,i,u,b,s
 - 块级元素：每个元素独立占据一行，用做布局，如：div,p,hn,table
 * 分割线元素：`<hr>`分割线，属性：size => 厚度；width => 宽度；color => 颜色；
@@ -76,14 +76,14 @@ Hyper Text Markup Language,超文本标记语言
 * 绝对路径：
 - 访问网络资源
 由 协议名、主机名(IP地址)、目录路径、文件名称
-https://www.baidu.com/img/bd_logo1.png
+`https://www.baidu.com/img/bd_logo1.png`
 协议名：http 或 https
 主机名：IP地址，域名
-	 www.xxx.com
+`www.xxx.com`
 目录路径：资源文件所在的文件夹路径
 - 访问本机资源
  从 文件所在的最高级 目录下一层一层查找
-E:\Course\01_HTML5BASIC\03_SRC\COOKBOOK\WEB_HTML5BASIC_COOKBOOK_DAY01\images\page.JPG
+`E:\Course\01_HTML5BASIC\03_SRC\COOKBOOK\WEB_HTML5BASIC_COOKBOOK_DAY01\images\page.JPG`
 缺点：程序一旦发生位置改变，要保证新计算机中也要有对应的绝对路径和文件。
 * 相对路径，相对于当前文件所在位置查找资源：
 - 同目录下
@@ -92,9 +92,9 @@ E:\Course\01_HTML5BASIC\03_SRC\COOKBOOK\WEB_HTML5BASIC_COOKBOOK_DAY01\images\pag
            先返回，再查找资源文件，如：`../ : 向上返回一级目录`
 - 子目录下
            先进入到文件夹中，再查找资源文件：目录名/目录名/文件名
-	注意：相对路径是通过 文件间的位置关系进行查找的。只要位置关系不变，任何资源文件都能找到。
+注意：相对路径是通过 文件间的位置关系进行查找的。只要位置关系不变，任何资源文件都能找到。
 * 根相对路径
-	永远都是从web站点的根目录处开始查找，以 / 作为开始的路径都是根相对路径，`/img/a1.jpg`
+永远都是从web站点的根目录处开始查找，以 / 作为开始的路径都是根相对路径，`/img/a1.jpg`
 8. 图像
 * 格式：
 - jpeg(图形图像联合专家组)，表现形式:*.jpg  *.jpeg，特点：有损压缩	
@@ -117,9 +117,9 @@ E:\Course\01_HTML5BASIC\03_SRC\COOKBOOK\WEB_HTML5BASIC_COOKBOOK_DAY01\images\pag
 	链接目标为 *.rar 或 *.zip时就是下载操作
 - 电子邮件链接
 	前提：必须有邮件客户端(Foxmail,Outlook)，绑定账号
-	<a href="mailto:目标邮件地址">联系我们</a>
+	`<a href="mailto:目标邮件地址">联系我们</a>`
 - 、返回页面顶部的空链接
-	<a href="#">返回顶部</a>
+	`<a href="#">返回顶部</a>`
 - 链接到 Javascript
   	即 执行JS操作
-    <a href="javascript:void(0);">执行JS</a>
+    `<a href="javascript:void(0);">执行JS</a>`
