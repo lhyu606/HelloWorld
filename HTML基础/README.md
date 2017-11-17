@@ -13,13 +13,16 @@ Hyper Text Markup Language,超文本标记语言</br>
 例如：
 ```
 <div>
-	<p>嵌套</p>
+  <p>嵌套</p>
 </div>
 ```
 为方便阅读理解，通常内嵌元素缩进
 ### 属性和值（以下内容标记一般称元素）
 * 不同的元素会有不同的属性，来定义元素状态
-* 语法：<标记  属性=值  属性=值 > 内容   </标记>。属性，如：align 定义元素文本内容的水平对齐方式，值，对应于 align 有：left => 左对齐,center => 居中对齐,right => 右对齐。完整的：`<p align='center'>Hello World....</p>`
+* 语法：<标记  属性=值  属性=值 > 内容   </标记>。属性，如：align 定义元素文本内容的水平对齐方式，值，对应于 align 有：`left` => 左对齐,`center` => 居中对齐,`right` => 右对齐。
+完整的：`<p align='center'>Hello World....</p>`，效果如下：<p align='center'>Hello World....</p>
+`<p align='left'>Hello World....</p>`，效果如下：<p align='left'>Hello World....</p>
+`<p align='right'>Hello World....</p>`，效果如下：<p align='right'>Hello World....</p>
 一般标准属性： 
 	- id：定义元素在页面内的唯一标识
 	- title：鼠标移入当前元素是会出现的提示内容
@@ -37,38 +40,40 @@ Hyper Text Markup Language,超文本标记语言</br>
 * html 页面  ：
 ```
 <html>
-<head></head>
-<body></body>
+  <head></head>
+  <body></body>
 </html>
 ```
 其中 head 是网页头元素， body 是网页显示主体
-* head 元素中包括：`<title>定义网页标题</title>`，meta ：
+* head 元素中可以包括：`<title>定义网页标题</title>`，meta ：
 	- 定义编码格式 `<meta charset='utf-8'>` 
 	- 定义网页关键字	`<meta name='keywords' content='关键字1，关键字2'>`
 	- 定义网页描述 `<meta name='description' content='需要描述的内容'>`
+还有`link`，`script`，`style`等等
 ### 文本
 * 特殊字符，例如：`&nbsp;` => 空格，`&lt;` => <,`&gt;` => >,`&copy;` => ©,`&yen;` => ¥
 * 样式元素：
-`<b></b>`加粗
-`<i></i>`倾斜
-`<s></s>`删除线
-`<u></u>`下划线
-`<sup></sup>`上标
-`<sub></sub>`下标
+`<b></b>`<b>加粗</b>
+`<i></i>`<i>倾斜</i>
+`<s></s>`<s>删除线</s>
+`<u></u>`<u>下划线</u>
+`<sup></sup>`上标<sup>t</sup>
+`<sub></sub>`下标<sub>b</sub>
 * 标题元素：`<hn></hn>` n 从 1 到 6 
 * 段落元素：`<p></p>`，注意 p 元素只能嵌套文本图像一级的元素，不能嵌套 p 和  div
 * 换行元素：`<br/>`
 * 块分区元素：`<div></div>`网页布局作用，可以嵌套任意元素
 * 行分区元素：`<span></span>`行内布局和分区
 ##### 行内元素与块级元素
-	- 行内元素：多个元素在一行内显示，修饰文本，如：span,i,u,b,s
-	- 块级元素：每个元素独立占据一行，用做布局，如：div,p,hn,table
-* 分割线元素：`<hr>`分割线，属性：size => 厚度；width => 宽度；color => 颜色；
+*  
+	- 行内元素：多个元素在一行内显示，修饰文本，如：`span`,`i`,`u`,`b`,`s`
+	- 块级元素：每个元素独立占据一行，用做布局，如：`div`,`p`,`hn`,`table`
+* 分割线元素：`<hr>`分割线，属性：`size` => 厚度；`width` => 宽度；`color` => 颜色；
 * 预格式化元素：`<pre></pre>`保留文档中的 ‘回车’和‘空格’效果 
 * 图像元素：`<img />`展示图片
 * 超链接元素：`<a></a>`超链接文本
 ### URL (Uniform Resource Locator)
-同意资源定位器，用于描述“资源文件”位置的一种方式，其表现方式有三种：
+##### 同意资源定位器，用于描述“资源文件”位置的一种方式，其表现方式有三种：
 * 绝对路径：
 	- 访问网络资源</br>
 	由 协议名、主机名(IP地址)、目录路径、文件名称
@@ -78,8 +83,8 @@ Hyper Text Markup Language,超文本标记语言</br>
 	`www.xxx.com`
 	目录路径：资源文件所在的文件夹路径
 	- 访问本机资源</br>
-	 从 文件所在的最高级 目录下一层一层查找
-	`E:\Course\01_HTML5BASIC\03_SRC\COOKBOOK\WEB_HTML5BASIC_COOKBOOK_DAY01\images\page.JPG`
+	 从 文件所在的最高级 目录下一层一层查找</br>
+	`E:\Course\01_HTML5BASIC\03_SRC\COOKBOOK\WEB_HTML5BASIC_COOKBOOK_DAY01\images\page.JPG`</br>
 	缺点：程序一旦发生位置改变，要保证新计算机中也要有对应的绝对路径和文件。
 * 相对路径，相对于当前文件所在位置查找资源：
 	- 同目录下</br>
