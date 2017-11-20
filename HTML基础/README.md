@@ -124,3 +124,88 @@ Hyper Text Markup Language,超文本标记语言</br>
 	- 链接到 Javascript</br>
 	  	即 执行JS操作
 	    `<a href="javascript:void(0);">执行JS</a>`
+### 锚点
+* 什么是锚点：在网页中某个位置做个记号
+* 使用锚点
+	1. 声明锚点：1）a 元素 name 属性，2）其他任意元素 id 属性
+	2. 跳转到锚点：` <a href="#锚点"></a>`或`<a href="页面URL#锚点"></a>`
+### 表格
+* 什么是表格：由 单元格 按照 从左到右 从上到下的方式进行排列的格式来显示数据
+* 语法：
+	- 表格：`<table></table>`，display 为  table，前后会自动换后，宽度高度 自适应
+	- 表行：`<tr></tr>`
+	- 表列：`<td></td>`
+* 属性：
+	- table
+		width：宽度
+	    height：高度
+	    align：表格在其父元素中的水平对齐方式 (left,center,right)
+	    border：边框
+	    cellpadding：内边距-单元格与内容之间的距离
+	    cellspacing：外边距-单元格与单元格之间的距离
+	    bgcolor：背景颜色
+	- tr
+		align：默认：left
+	    valign：内容的垂直对齐方式(top,middle,bottom),默认：middle
+	    bgcolor:背景色
+	- td
+		width：宽度
+	    height：高度
+	    align：水平对齐方式 (left,center,right)
+	    valign：垂直对齐方式(top,middle,bottom),默认：middle
+	    colspan：跨列，从当前单元格处开始，横向向右合并几个单元格，包含自己。 注意：被合并掉的单元格，一定要删除，否则会产生额外的单元格影响整个表格的结构
+	    rowspan：跨行，从当前单元格处开始，纵向向下合并几个单元格，包含自己。 注意：被合并掉的单元格，一定要删除，否则会产生额外的单元格影响整个表格的结构
+* 表格其它标记
+	- 标题：`<caption></caption>`
+	- 行/列 标题：`<th></th>`
+	- 表头：`<thead></thead>`
+	- 表主体：`<tbody></tbody>`，如果没有手写，大部分浏览器会自动添加
+	- 表尾：`<tfoot></tfoot>`
+* 表格嵌套
+	被嵌套的表格应该放在<td></td>中
+### 列表
+* 什么是列表
+	按照一定的格式显示数据，由 列表项(li) 按照从上到下(从左到右)的方式进行排列的
+* 列表的使用
+	- .有序列表
+	```
+	<ol>
+		<li></li>
+		<li></li>
+	</ol>
+	```
+	属性：type，类型，列表项前显示的标识，取值：1（默认）、a、A、i、I。start：起始的编号
+	- 无序列表
+	```
+	<ul>
+		<li></li>
+		<li></li>
+	</ul>
+	```
+	属性：type，disc ：默认值，实心圆，circle ：空心圆，square ：实心矩形，none ：不显示
+	- 定义列表
+	语法：
+	```
+	 <dl>
+	 	<dt></dt>
+	 	<dd></dd> 
+	</dl>
+	```
+	 定义列表：`<dl></dl>`，描述的事物等：`<dt></dt>`，对描述物的解释：`<dd></dd>`
+	- 适用场合：图文并茂
+### 结构标记
+* 作用
+	为了取代布局中的 div 标记，提升标签的语义性
+* 结构标记
+    - header
+	作用：页面或某区域的顶部信息
+	- nav
+	作用：描述页面的导航
+	- section
+	作用：描述页面的主体内容部分
+	- aside
+	作用：描述页面中的侧边栏
+	- footer
+	作用：描述页面偏底部的信息
+	- article
+	作用：描述页面中 偏文本性的内容(博客条目，微博，文章内容，帖子的信息和回复等)
