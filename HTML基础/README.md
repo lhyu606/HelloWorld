@@ -263,8 +263,8 @@ Hyper Text Markup Language,超文本标记语言</br>
 			2. enctype 值必须为 multipart/form-data
 	- 选项框<br/>
 	语法：<br/>
-	<select></select> -- 创建选项框<br/>
-	<option></option> --创建选项框中的选项<br/>
+	`<select></select>` -- 创建选项框<br/>
+	`<option></option>` --创建选项框中的选项<br/>
 	属性：
 		1. `<select>`，1）name，2）size: 大于1 ， 则为滚动列表，3)multiple：设置多选(滚动列表使用居多)
 		2. `<option>`，1）value，2）selected：预选中
@@ -283,3 +283,33 @@ Hyper Text Markup Language,超文本标记语言</br>
 	- 为控件分组<br/>
 	`<fieldset></fieldset>`  分组<br/>
 	`<legend></legend>`  分组标题
+### 浮动框架
+* 作用：将一个网页 嵌入在 另外一个网页中
+* 语法`<iframe></iframe>`
+* 属性
+    - src：浮动框架中的网页 url
+	- width：宽度
+	- height：高度
+	- frameborder：值为0时，表示无边框
+### 摘要与细节
+* 作用：将网页中的某部分信息进行展开或收缩
+* 语法：`<details></details>` --定义细节，
+	 `<summary></summary>` --定义标题
+### 度量元素
+* 语法：`<meter>文本</meter>`
+* 属性
+    - min：度量范围的最小值，默认为0
+	- max：度量范围的最大值，默认为1，通常会将其改为100
+	- value：元素上所显示的度量值，默认为0
+### 时间元素
+* 作用：用来 关联 时间的不同表现方式
+* 语法：`<time>显示文本</time>`
+* 属性：datetime，关联的 日期时间值，日期和时间之间用"T"来分割 
+### 高亮元素
+* 以突出的背景颜色 显示内容
+* 语法：`<mark>文本</mark>`
+### 按钮元素
+* 语法：`<button>显示的文本</button>`
+* 注意：
+	- 如果将  button 放在 form 中，那么作用就是 提交按钮 
+	- 如果将 button 放在 form 之外，那么作用就是普通按钮 
