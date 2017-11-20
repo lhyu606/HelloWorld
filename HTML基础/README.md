@@ -136,24 +136,24 @@ Hyper Text Markup Language,超文本标记语言</br>
 	- 表行：`<tr></tr>`
 	- 表列：`<td></td>`
 * 属性：
-	- table
-		width：宽度
-	    height：高度
-	    align：表格在其父元素中的水平对齐方式 (left,center,right)
-	    border：边框
-	    cellpadding：内边距-单元格与内容之间的距离
-	    cellspacing：外边距-单元格与单元格之间的距离
+	- `table`
+		width：宽度<br/>
+	    height：高度<br/>
+	    align：表格在其父元素中的水平对齐方式 (left,center,right)<br/>
+	    border：边框<br/>
+	    cellpadding：内边距-单元格与内容之间的距离<br/>
+	    cellspacing：外边距-单元格与单元格之间的距离<br/>
 	    bgcolor：背景颜色
-	- tr
-		align：默认：left
-	    valign：内容的垂直对齐方式(top,middle,bottom),默认：middle
+	- `tr`
+		align：默认：left<br/>
+	    valign：内容的垂直对齐方式(top,middle,bottom),默认：middle<br/>
 	    bgcolor:背景色
-	- td
-		width：宽度
-	    height：高度
-	    align：水平对齐方式 (left,center,right)
-	    valign：垂直对齐方式(top,middle,bottom),默认：middle
-	    colspan：跨列，从当前单元格处开始，横向向右合并几个单元格，包含自己。 注意：被合并掉的单元格，一定要删除，否则会产生额外的单元格影响整个表格的结构
+	- `td`
+		width：宽度<br/>
+	    height：高度<br/>
+	    align：水平对齐方式 (left,center,right)<br/>
+	    valign：垂直对齐方式(top,middle,bottom),默认：middle<br/>
+	    colspan：跨列，从当前单元格处开始，横向向右合并几个单元格，包含自己。 注意：被合并掉的单元格，一定要删除，否则会产生额外的单元格影响整个表格的结构<br/>
 	    rowspan：跨行，从当前单元格处开始，纵向向下合并几个单元格，包含自己。 注意：被合并掉的单元格，一定要删除，否则会产生额外的单元格影响整个表格的结构
 * 表格其它标记
 	- 标题：`<caption></caption>`
@@ -209,3 +209,77 @@ Hyper Text Markup Language,超文本标记语言</br>
 	作用：描述页面偏底部的信息
 	- article
 	作用：描述页面中 偏文本性的内容(博客条目，微博，文章内容，帖子的信息和回复等)
+### 表单
+* 表单的作用
+	用于 显示、收集、提交用户信息到服务器上。由表单元素和表单的控件元素组成
+* 表单
+	- 语法：`<form></form>`，页面不显示，负责将 表单中出现的 表单控件元素的数据 进行提交。如果 表单控件元素不再 表单 中，那么数据将无法提交
+	- 属性：
+		1. id ：定义表单在页面中的唯一标识
+		2. name ：定义表单的名称-JS中使用
+		3. action ：处理 表单数据的 服务器端处理程序的 地址。通常都是由服务器端处理人员提供，默认值 为提交到本页
+		4. method ：表单数据提交的方式
+			* get（默认）
+				- 特点：以明文的方式进行提交,数据会显示在地址栏上。1、安全性较低(明文)，2、有长度限制 2KB。
+				- 使用场合：向服务器要数据的时候使用 get 提交方式
+			* post
+				- 特点：以密文的方式进行数据的提交，所提交的数据不会显示在地址栏上
+				  	1. 安全性较高， 适合提交用户的数据，密码必须用post
+					2. 无大小限制，大文件提交，大数据提交
+				- 使用场合：提交数据让服务器去处理的时候，使用post
+		5. enctype
+			* 作用：指定表达数据进行编码的方式(将什么样的数据提交个服务器)
+			* 取值：
+				- application/x-www-form-urlencoded(默认值)，允许将提交数据中的普通字符以及特殊字符(?,=,&) 一并提交给服务器
+				- multipart/form-data 允许将 文件 进行上传，文件上传时，enctype 的值必须为 multipart/form-data
+				- text/plain 只允许将普通字符提交给服务器，特殊字符不可以
+* 表单控件
+	- 作用：提供 一组 允许 用户操作的控件，从而接收用户输入的数据
+	- input 元素<br/>
+	语法：`<input>`或`<ipnut />`<br/>
+	属性：
+		1. type：根据不同的type值，创建不同的input控件
+		2. value：控件的值,提交给服务器时使用
+		3. name：控件的名称，服务器使用
+		4. disabled：禁用控件，无需给值
+	- 文本框与密码框<br/>
+	文本框` <input type="text">`，密码框`<input type="password">`<br/>
+	属性：1、maxlength：限制输入的字符数。2、readonly：只读<br/>
+	注意：1、type 默认或者写错的时候都是 文本框。 2、name 取值 命名规范，匈牙利命名法
+	- 单选按钮和复选框<br/>
+	单选按钮`<input type="radio">`，缩写：rdo。复选框`<input type="checkbox">` ，缩写：chk<br/>
+	属性：
+	    1. name：除表示名称之外，还表示分组信息。一组单选按钮或复选框，名称必须相同
+		2. value：必须设置
+	    3. checked：设置默认被选中，无需设置值
+	- 按钮<br/>
+	提交按钮`<input type="submit">`，作用：提交表单<br/>
+	重置按钮`<input type="reset">`，作用：恢复到初始化状态<br/>
+	普通按钮`<input type="button">`，作用：用户自定义效果
+	属性：name ，value：设置按钮上的文字
+	- 隐藏域：`<input type="hidden">`， 作用：将 一些 不想用户看的数据，但是要提交给服务器的数据放在隐藏域中
+	- 文件选择框：`<input type="file">`，注意：
+	        1. method 必须为 post
+			2. enctype 值必须为 multipart/form-data
+	- 选项框<br/>
+	语法：<br/>
+	<select></select> -- 创建选项框<br/>
+	<option></option> --创建选项框中的选项<br/>
+	属性：
+		1. `<select>`，1）name，2）size: 大于1 ， 则为滚动列表，3)multiple：设置多选(滚动列表使用居多)
+		2. `<option>`，1）value，2）selected：预选中
+	- 多行文本域<br/>
+	作用：多行的 文本框(text)<br/>
+	语法：`<textarea></textarea>`<br/>
+	属性：
+		1. name
+		2. cols：指定文本区域的列数，文本域中，一行允许显示多少个字符，例如：cols=50
+		3. rows：指定文本区域的行数，默认能够显示几行数据
+		4. readonly：只读
+	- `<label>`元素<br/>
+	作用：关联 文本 与 表单元素<br/>
+	语法：`<label>文本</label>`<br/>
+	属性：`for`，表示与该元素相关联的表单控件的"id 值"<br/>
+	- 为控件分组<br/>
+	`<fieldset></fieldset>`  分组<br/>
+	`<legend></legend>`  分组标题
