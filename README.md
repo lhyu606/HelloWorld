@@ -8,6 +8,8 @@
 *	Layui ，git  ，nodejs ，npm ，webpack ，Less ， sass ，vue ，markdown ，PHP，MySQL，HTTP协议，AngularJS，能够使用 MVC 模式操作数据和 DOM
 *	phoneGap，jqMobile
 
+公司网址：https://www.lending51.com/  账号：17750669325	密码：Aa123456
+
 新浪云 以前作品网址：
 *	1、http://1.lhyu606.applinzi.com/
 	- 个人主页：使用Bootstrap编写，主要包括导航条、栅格布局及表单；表单中使用了 H5 新特性；游戏贪吃蛇、五子棋和特效模拟星空（使用 canvas 绘制）
