@@ -1,12 +1,11 @@
 
 ##个人技能
-*	1、HTML，CSS，能够熟练使用完成各种静态页面编写
+*	HTML，CSS，能够熟练使用完成各种静态页面编写
 *	js , DOM , JQuery实现动态交互，动画，能够熟练手写原生 js 代码
 *	HTML5 新技术：操作音视频，制作表单，canvas，localstorage，表单新属性
 *	Ajax，能够解决跨域访问问题
 *	Bootstrap，实现响应式网页开发，能够定制功能和组件
-*	Layui
-*	nodejs，Less , sass ，vue ，PHP，MySQL，HTTP协议，AngularJS，能够使用 MVC 模式操作数据和 DOM
+*	Layui ，git  ，nodejs ，npm ，webpack ，Less ， sass ，vue ，PHP，MySQL，HTTP协议，AngularJS，能够使用 MVC 模式操作数据和 DOM
 *	phoneGap，jqMobile
 
 新浪云 以前作品网址：
