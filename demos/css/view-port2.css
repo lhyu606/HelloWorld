@@ -1,0 +1,30 @@
+*{margin: 0;padding: 0;}
+.text-center{text-align: center;vertical-align: middle;}
+.text-left{text-align: left;}
+.text-right{text-align: right;}
+.fl{float: left;}
+.fr{float: right;}
+.clear{clear: both;}
+.user-top{height: 0.6rem;background: white;font-size: 0.16rem;line-height: 0.6rem;}
+.user-img{width: 0.48rem;margin-left: 0.24rem;margin-right: 0.19rem;vertical-align: middle;}
+.user-info-btn{display: inline-block;width: 0.98rem;vertical-align: middle;height: 0.3rem;line-height: 0.32rem;border: 1px solid #0077d9;border-radius: 0.15rem;color: #0077d9;}
+.xx{display: inline-block;vertical-align: middle;}
+
+.zichan{height: 2.88rem;width: 6.40rem;background: url(../images/user-asset-bg.jpg)no-repeat;}
+.zichan:before{content: '';display: table;}
+.col-grey{color: #cdddf6;}
+.col-8ca{color: #8ca0b0;}
+.orange{color: #ff9036;}
+.col-fff{color: white;}
+.red{color: #ff3a55;}
+.fs22{font-size: 0.22rem;}
+.fs24{font-size: 0.24rem;}
+.fs20{font-size: 0.20rem;}
+.fs18{font-size: 0.18rem;}
+.mt35{margin-top: 0.35rem;}
+.mt25{margin-top: 0.25rem;}
+.mt20{margin-top: 0.20rem;}
+.zc-zc{font-size: 0.52rem;color: white;}
+.zc-del-btn{display: inline-block;height: 0.4rem;width: 1.56rem;line-height: 0.4rem;border: 1px solid #FFFFFF;border-radius: 0.2rem;color: #FFFFFF;font-size: 0.22rem;text-decoration: none;}
+.arrow-r{width: 30px;height: 80px;background: url(../images/title_arrow.png) no-repeat center center;background-size: 15px 30px;}
+

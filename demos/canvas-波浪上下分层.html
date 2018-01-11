@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>波浪上下分层</title>
+		<style type="text/css">
+			canvas{
+				border: 1px solid #8AD5F4;
+			}
+				
+		</style>
+	</head>
+	<body>
+		<canvas id="canvas" width="500" height="500">
+			您的浏览器版本过低，不支持 canvas ....
+		</canvas>
+		<script type="text/javascript">
+			var canvas = document.getElementById('canvas');
+			var ctx = canvas.getContext('2d');
+			canvas.width = 500;
+			canvas.height = 500;
+			var radius = canvas.width / 8;
+			var cx = canvas.width / 2,
+				cy = canvas.height / 2;
+				
+			function circle (){
+				ctx.beginPath();
+				ctx.arc(cx,cy,radius*2,0,2 * Math.PI);
+			}
+//			circle();
+//			ctx.stroke();
+			
+			function text(fillStyle){
+				var fontSize = 62.5;
+				ctx.font = 'bold ' + fontSize + 'px Arial';
+				ctx.textAlign = 'center';
+				ctx.fillStyle = fillStyle;
+				ctx.fillText('贴',cx,cy + fontSize * 0.3);
+			}
+//			text('#29a3fe');
+//			console.log(cx,cy,radius);
+			var ws = 20 ;//  ws -> waveSize;
+			var wr = radius; // wr -> WaveRadius;
+			var x = 0,y = 0;//波浪位移
+			function curve(){
+				var cux = cx + x - radius;
+				ctx.beginPath();
+				ctx.moveTo(cux, cy+y);
+				ctx.quadraticCurveTo(cux + wr/2, cy - ws+y, cux + wr*2/2, cy+y)
+    			ctx.quadraticCurveTo(cux + wr*3/2, cy + ws+y, cux + wr*4/2, cy+y)
+    
+				ctx.quadraticCurveTo(cux + wr*5/2, cy - ws+y, cux + wr*6/2, cy+y)
+    			ctx.quadraticCurveTo(cux + wr*7/2, cy + ws+y, cux + wr*8/2, cy+y)
+    			ctx.lineTo(cux + wr*8/2, canvas.height);
+				ctx.lineTo(cux , canvas.height);
+				ctx.lineTo(cux , cy);
+				ctx.closePath();
+			}
+//			ctx.fillStyle = '#29a3fe';
+//			curve();
+//			ctx.fill();
+//			
+//			curve();
+//			ctx.clip();
+//			text('#f00');
+            var up = 1;
+			function loop(){
+				ctx.clearRect(0,0,canvas.width,canvas.height);
+				x -= 1.5;
+				x = x % (2*wr);
+				//if(y%180 == 0){up *= -1}
+//				y -= 1.5
+//				y = y % 120;
+				ctx.save();
+				circle();
+				//ctx.stroke();
+				ctx.clip();
+				//text('#29a3fe');
+				heart('#0000ff')
+				ctx.fillStyle = '#ffffff';
+				curve();
+				ctx.fill();
+				curve();
+				ctx.clip();
+				//text('#fff');
+				heart('#ff0000')
+				ctx.restore();
+				requestAnimationFrame(loop);
+			}
+			loop();
+			function heart(fillStyle){
+				ctx.beginPath();
+				ctx.moveTo(250, 312);
+				ctx.bezierCurveTo(136, 224, 164, 114, 250, 184);
+				ctx.moveTo(250, 312);
+	  			ctx.bezierCurveTo(364, 224, 336, 114, 250, 184);
+				ctx.closePath();
+				ctx.fillStyle = fillStyle;
+				ctx.fill();
+			}
+			heart();
+			//console.log(arr)
+		</script>
+	</body>
+</html>

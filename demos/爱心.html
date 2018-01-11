@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			body{font-size: 100px;}
+		   .heart{
+		       width: 3em;
+		       height: 3em;
+		       position: fixed;
+		       top: 50%;
+		       left: 50%;
+		       transform: translate(-50%,-50%);
+		   }
+		   .heart div{position: absolute;}
+		   .disc1{
+		       width: 1em;
+		       height: 1em;
+		       border:1px solid red;
+		       background-color: red;
+		       border-radius:50%;
+		       transform: translateX(-36%);
+		   }
+		   .disc2{
+		       width: 1em;
+		       height: 1em;
+		       border:1px solid red;
+		       background-color: red;
+		       border-radius:50%;
+		       transform: translateX(36%);
+		   }
+		   .square{
+		       width: 1em;
+		       height: 1em;
+		       border:1px solid red;
+		       background-color: red;
+		       transform: translateY(36%) rotate(45deg);
+		       
+		   }
+		</style>
+	</head>
+	<body>
+		<div class="heart ">
+            <div class="disc1" id="disc1"></div>
+            <div class="disc2"></div>
+            <div class="square"></div>
+       </div>
+       <script type="text/javascript">
+       		var disc = document.getElementById('disc1');
+       		console.dir(disc.style);
+       		var style = getComputedStyle(disc);
+       		console.log(style);
+       </script>
+	</body>
+</html>

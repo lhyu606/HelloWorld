@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,maximum-scale=1.0,user-scalable=no,initial-scale=1.0">  
+		<script>   
+			(function (doc, win) {
+	           var docEl = doc.documentElement,
+	               resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+	               recalc = function () {
+	                   var clientWidth = docEl.clientWidth;
+	                   if (!clientWidth) return;
+	                   if(clientWidth>=640){
+	                       docEl.style.fontSize = '100px';
+	                   }else{
+	                       docEl.style.fontSize = 100 * (clientWidth / 640) + 'px';
+	                  }
+	              };
+	  
+	          if (!doc.addEventListener) return;
+	          win.addEventListener(resizeEvt, recalc, false);
+	          doc.addEventListener('DOMContentLoaded', recalc, false);
+	      })(document, window);
+		</script> 
+		<title>移动端自适应，rem</title>
+		<link rel="stylesheet" type="text/css" href="css/view-port2.css"/>
+	</head>
+	<body>
+		
+		 
+		
+		<div class="user-top">
+			<img src="images/user-pic-boy.png" class="user-img"/><span class="user-info-btn text-center ">用户中心</span>
+			<div class="clear"></div>
+		</div>
+		<div class="zichan text-center fs22">
+			<p class="col-grey mt35 fs22">账户总资产(元)</p>
+			<p class="zc-zc mt20">125,764.00</p>
+			<p class="col-grey mt20 fs22">累积收益(元)<span class="col-fff"> 84,130.50</span></p>
+			<p class=""><a href="#" class="zc-del-btn mt20">资产明细</a></p>
+		</div>
+	</body>
+</html>

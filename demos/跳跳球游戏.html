@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>跳跳球游戏</title>
+		<style>
+			canvas{border:1px solid #adf;background: #fbfbff;}
+			input{width: 35px;}
+			.fl{float: left;}
+			.set{width: 300px;border: 1px solid #A2DDF6;text-align: center;padding: 50px 10px 30px;margin-left: 15px;}
+		</style>
+	</head>
+	<body>
+		<div class="fl">
+			<canvas id="canvas" width="800" height="400">请更新浏览器.....</canvas>
+		</div>
+		<div class="fl set" id="set">
+			<h1>设置</h1>
+			等级：
+			<input type="button" name="" id="level" value="1"/>
+			<input type="button" name="" id="level" value="2"/>
+			<input type="button" name="" id="level" value="3"/>
+			<input type="button" name="" id="level" value="4"/>
+			<input type="button" name="" id="level" value="5"/>
+			<br/><br/><br/>
+			<button id="btn">START</button><br/><br/>
+			<hr /><br/>
+			<p>分数：<b id="score">0</b></p>
+		</div>
+		
+		
+		<script type="text/javascript">
+			var canvas = document.getElementById("canvas");
+			var ctx = canvas.getContext('2d');
+			
+			var x = canvas.width-50, y = canvas.height-50;// 球的位置
+			var dx = 1,dy = 1;//  方向
+			var stepX = 1,stepY = 2;// 球的步长
+			var rx = canvas.width - 150;// 底下挡板的位置
+			var isOver = false,remain = false;// 游戏结束
+			var level = 0;//  1  级为0
+			var stop = true;//游戏暂停
+			var circleColor = [
+				{num:250,add:1},
+				{num:210,add:1},
+				{num:170,add:1}
+			];
+			function randomColor(arr){
+				for(var i=0,len=arr.length;i<len;i++){
+					var item = arr[i];
+					if(item.num>=255){
+						item.add = -1
+					}else if(item.num<=180){
+						item.add = 1
+					}
+					item.num += item.add;
+				}
+				
+				return 'rgba('+arr[0].num+','+arr[1].num+','+arr[2].num+',1)'
+			}
+			function circle(x){
+				ctx.beginPath();
+				var col = randomColor(circleColor);console.log(col)
+				ctx.fillStyle = col;//'rgba(200,185,255,1)';
+				ctx.arc(x,y,10,0,2*Math.PI);
+				ctx.closePath();
+				ctx.fill();
+			}
+			function rect(){
+				ctx.beginPath();
+				ctx.fillStyle = 'rgba(200,185,255,1)';
+				ctx.fillRect(rx,canvas.height-30,150,25);
+				ctx.closePath();
+				ctx.fill();
+			}
+			function judge(){
+				if(x<=10 || x>=(canvas.width-10)){dx *= -1}
+				if(y<=10){
+					dy *= -1
+				}
+				if(y>=(canvas.height-35)){
+					if(x>rx&&x<rx+150){
+						if(!remain){
+							dy *= -1;
+							stepX = Math.abs((x - rx)/30 - 2.5);
+							stepX <= 1&&stepX++;
+							stepX += level;
+							var score = document.getElementById('score')
+							score.innerHTML = score.innerHTML-0 + (level+1)*10;
+						}
+						
+					}else{
+						remain = true;
+						if(y>=(canvas.height + 10)){
+							console.log('game over.....');
+							btn.innerHTML = 'START';
+							stop = true;
+							isOver = true;
+							ctx.fillStyle="rgba(251,251,255,1)";
+							ctx.fillRect(0,0,canvas.width,canvas.height);
+							x = canvas.width-50, y = canvas.height-50;
+							rx = canvas.width - 150;
+							//circle(x,y);
+							rect();
+						}
+					} 
+					
+				}
+			}
+			
+			ctx.fillStyle="rgba(251,251,255,1)";
+			ctx.fillRect(0,0,canvas.width,canvas.height);
+			circle(x,y);
+				rect();
+			var timer = setInterval(function(){
+				if(stop){console.log(1);return}
+				if(isOver){console.log(2)
+					x = canvas.width-50, y = canvas.height-50;
+					isOver=false;
+					return
+				}
+				judge();
+				
+				x += dx * stepX;
+				y += dy * (stepY + level);
+				ctx.fillStyle="rgba(251,251,255,0.2)";
+				
+				ctx.fillRect(0,0,canvas.width,canvas.height);
+				
+				circle(x,y);
+				rect();
+				
+			},15);
+			canvas.onmousemove = function(e){
+				if(stop){return}
+				rx = e.offsetX;
+				if(rx<=0){
+					rx = 0
+				}else if(rx>=(canvas.width-150)){
+					rx = canvas.width - 150
+				}
+			}
+			var btn = document.getElementById('btn');
+			btn.onclick = function(){console.log('stop:'+stop+'--isOver:'+isOver+'--remain:'+remain)
+				if(stop){
+					remain = false;
+					stop = false;
+					btn.innerHTML = 'STOP';console.log('动')
+				}else{
+					stop = true;
+					btn.innerHTML = 'START';console.log('停')
+				}
+			}
+			document.getElementById('set').onclick = function(e){
+				var ele = e.target;
+				if(ele.nodeName == 'INPUT'){
+					level = ele.value - 1;console.log(level)
+				}
+			}
+		</script>
+	</body>
+</html>
