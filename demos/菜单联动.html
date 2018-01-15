@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>菜单联动</title>
+		<style type="text/css">
+			*{margin: 0;padding: 0;}
+			.header{text-align: center;padding: 20px 0;position: fixed;top: 0;left: 0;width: 100%;background: white;}
+			.container{width: 400px;margin: 82px auto 0;}
+			.menu{width: 200px;position: fixed;top: 85px;left: 50%;margin-left: -400px;}
+			.menu ul li{cursor: pointer;}
+			.menu ul li.active{background: #D0D0D0;}
+			.content{height: 100%;}
+			.content>ul>li{list-style: none;}
+			.lear{clear: both;}
+			.vr{height: 900px;}
+		</style>
+	</head>
+	<body>
+		<div class="header">
+			<h1>毛泽东诗一首</h1>
+		</div>
+		<div class="container">
+			<div class="menu">
+				<ul>
+					<li class="menuItem active" data-idx = "0"><p>第 1 章</p></li>
+					<li class="menuItem" data-idx = "1"><p>第 2 章</p></li>
+					<li class="menuItem" data-idx = "2"><p>第 3 章</p></li>
+					<li class="menuItem" data-idx = "3"><p>第 4 章</p></li>
+					<li class="menuItem" data-idx = "4"><p>第 5 章</p></li>
+					<li class="menuItem" data-idx = "5"><p>第 6 章</p></li>
+					<li class="menuItem" data-idx = "6"><p>第 7 章</p></li>
+					<li class="menuItem" data-idx = "7"><p>第 8 章</p></li>
+					<li class="menuItem" data-idx = "8"><p>第 9 章</p></li>
+					<li class="menuItem" data-idx = "9"><p>第 10 章</p></li>
+				</ul>
+			</div>
+			<div class="content" id="content">
+				<ul>
+					<li class="item"><h3>第 1 章</h3><p>《卜算子·咏梅》<br/><br/>风雨送春归，飞雪迎春到，<br/>已是悬崖百丈冰，犹有花枝俏。<br/>俏也不争春，只把春来报。<br/>待到山花烂漫时，她在丛中笑。</p><p>《卜算子·咏梅》<br/><br/>风雨送春归，飞雪迎春到，<br/>已是悬崖百丈冰，犹有花枝俏。<br/>俏也不争春，只把春来报。<br/>待到山花烂漫时，她在丛中笑。</p></li>
+					<li class="item"><h3>第 2 章</h3><p>《卜算子·咏梅》<br/><br/>风雨送春归，飞雪迎春到，<br/>已是悬崖百丈冰，犹有花枝俏。<br/>俏也不争春，只把春来报。<br/>待到山花烂漫时，她在丛中笑。</p></li>
+					<li class="item"><h3>第 3 章</h3><p>《卜算子·咏梅》<br/><br/>风雨送春归，飞雪迎春到，<br/>已是悬崖百丈冰，犹有花枝俏。<br/>俏也不争春，只把春来报。<br/>待到山花烂漫时，她在丛中笑。</p><p>《卜算子·咏梅》<br/><br/>风雨送春归，飞雪迎春到，<br/>已是悬崖百丈冰，犹有花枝俏。<br/>俏也不争春，只把春来报。<br/>待到山花烂漫时，她在丛中笑。</p></li>
+					<li class="item"><h3>第 4 章</h3><p>《卜算子·咏梅》<br/><br/>风雨送春归，飞雪迎春到，<br/>已是悬崖百丈冰，犹有花枝俏。<br/>俏也不争春，只把春来报。<br/>待到山花烂漫时，她在丛中笑。</p></li>
+					<li class="item"><h3>第 5 章</h3><p>《卜算子·咏梅》<br/><br/>风雨送春归，飞雪迎春到，<br/>已是悬崖百丈冰，犹有花枝俏。<br/>俏也不争春，只把春来报。<br/>待到山花烂漫时，她在丛中笑。</p><p>《卜算子·咏梅》<br/><br/>风雨送春归，飞雪迎春到，<br/>已是悬崖百丈冰，犹有花枝俏。<br/>俏也不争春，只把春来报。<br/>待到山花烂漫时，她在丛中笑。</p></li>
+					<li class="item"><h3>第 6 章</h3><p>《卜算子·咏梅》<br/><br/>风雨送春归，飞雪迎春到，<br/>已是悬崖百丈冰，犹有花枝俏。<br/>俏也不争春，只把春来报。<br/>待到山花烂漫时，她在丛中笑。</p><p>《卜算子·咏梅》<br/><br/>风雨送春归，飞雪迎春到，<br/>已是悬崖百丈冰，犹有花枝俏。<br/>俏也不争春，只把春来报。<br/>待到山花烂漫时，她在丛中笑。</p></li>
+					<li class="item"><h3>第 7 章</h3><p>《卜算子·咏梅》<br/><br/>风雨送春归，飞雪迎春到，<br/>已是悬崖百丈冰，犹有花枝俏。<br/>俏也不争春，只把春来报。<br/>待到山花烂漫时，她在丛中笑。</p></li>
+					<li class="item"><h3>第 8 章</h3><p>《卜算子·咏梅》<br/><br/>风雨送春归，飞雪迎春到，<br/>已是悬崖百丈冰，犹有花枝俏。<br/>俏也不争春，只把春来报。<br/>待到山花烂漫时，她在丛中笑。</p></li>
+					<li class="item"><h3>第 9 章</h3><p>《卜算子·咏梅》<br/><br/>风雨送春归，飞雪迎春到，<br/>已是悬崖百丈冰，犹有花枝俏。<br/>俏也不争春，只把春来报。<br/>待到山花烂漫时，她在丛中笑。</p><p>《卜算子·咏梅》<br/><br/>风雨送春归，飞雪迎春到，<br/>已是悬崖百丈冰，犹有花枝俏。<br/>俏也不争春，只把春来报。<br/>待到山花烂漫时，她在丛中笑。</p></li>
+					<li class="item"><h3>第 10 章</h3><p>《卜算子·咏梅》<br/><br/>风雨送春归，飞雪迎春到，<br/>已是悬崖百丈冰，犹有花枝俏。<br/>俏也不争春，只把春来报。<br/>待到山花烂漫时，她在丛中笑。</p><p>《卜算子·咏梅》<br/><br/>风雨送春归，飞雪迎春到，<br/>已是悬崖百丈冰，犹有花枝俏。<br/>俏也不争春，只把春来报。<br/>待到山花烂漫时，她在丛中笑。</p></li>					
+				</ul>
+				<div class="vr"></div>
+			</div>
+			<p class="clear"></p>
+		</div>
+		<script type="text/javascript">
+			var list = document.getElementsByClassName("item");
+			var heightList = [];// 内容高度列表
+			var height = 0;
+			heightList.push(height);
+			for (var i=0,len=list.length;i<len;i++) {
+				height += list[i].clientHeight
+				heightList.push(height);
+			}
+			console.dir(list);
+			document.onscroll = function(e){
+				// 监听滚动
+				var content = document.getElementById('content');
+				var scrollHeight = document.body.scrollTop;
+				var scrollTo = document.getElementsByClassName("header").clientHeight;
+				// 找寻正确位置
+				for (var i=0,len=heightList.length;i<len;i++) {
+					if(heightList[i+1]&&(scrollHeight>=heightList[i]&&scrollHeight<heightList[i+1])){
+						scrollTo = i;
+						break;
+					}else{
+						scrollTo = len;
+					}
+				}
+				scrollTo = scrollTo>(len-2)?(len-2):scrollTo;
+				// 对应菜单
+				var menuList = document.getElementsByClassName('menuItem');
+				var menuLength = menuList.length;
+				var classVal = '';
+				for (var i=0;i<menuLength;i++) {
+					classVal = menuList[i].getAttribute('class');
+					if(i === scrollTo){
+						menuList[i].setAttribute('class','menuItem active');
+					}else{
+						menuList[i].setAttribute('class','menuItem');
+					}
+				}
+				
+			}
+			document.getElementsByClassName("menu")[0].onclick = function(e){
+				// 菜单选择
+				var target = e.target;
+				while(target.nodeName !== 'LI'){
+					target = target.parentNode;
+				}
+				var idx = target.getAttribute('data-idx');
+				document.body.scrollTop = heightList[idx];
+			}
+		</script>
+	</body>
+</html>
