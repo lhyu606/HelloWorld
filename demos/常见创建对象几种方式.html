@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>构造对象</title>
+		<style>
+			
+		</style>
+	</head>
+	<body>
+		
+        <script type="text/javascript">
+            // 普通对象
+            console.log('普通对象:');
+            var doe = {
+                name: 'doe',
+                age: 12,
+                hello: function() {
+                    console.log(this.name)
+                }
+            }
+            doe.hello();
+
+			// 构造函数模式
+            console.log('构造函数模式:');
+            function Student(name, age) {
+                this.name = name;
+                this.age = age;
+                this.hello = function () {
+                    console.log('hello ' + this.name + '!');
+                }
+            }
+            var xiaoming = new Student('xiaoMing', '11');
+            console.log(xiaoming.name);  // "xiaoMing"
+
+            // 工厂模式
+            console.log('工厂模式:');
+            function Teacher (name,age) {
+                var obj = new Object();
+                obj.name = name;
+                obj.age = age;
+                obj.hello = function () { 
+                    console.log('hello, my name is ' + this.name + '. I am a teacher.');
+                }
+                return obj;
+            }
+            var liSi = Teacher('liSi', '25');
+            liSi.hello();
+
+            // 原型模式
+            console.log('原型模式:');
+            function Animal (){
+
+            }
+            Animal.prototype.run = function(){
+                console.log('I can run ...., but ');
+                console.log(this.lang);
+
+            }
+            Animal.prototype.lang = 'I can\'t talk with humans  ...'; 
+            var cat = new Animal();
+            cat.run();
+
+            // 通常可以使用原型、构造 混合模式
+            console.log('原型、构造 混合模式:');
+            function Benz (name,color,speed) {
+                this.name = name;
+                this.color = color;
+                this.speed = speed;
+            }
+            Benz.prototype = {
+                run: function(){
+                    console.log('I can run width speed : ' + this.speed);
+                },
+                factory:'Benz'
+            }
+            var glc = new Benz('Glc', 'red', '300');
+            glc.run();
+            console.log(glc.factory);
+            // 原形链
+            console.log("glc.__proto__ === Benz.prototype ? :");
+            console.log(glc.__proto__ === Benz.prototype);  // true
+            console.log("glc instanceof Benz ? :");
+            console.log( glc instanceof Benz); // true
+            console.dir( glc.__proto__.__proto__.constructor === Object);  // true
+            console.dir(Object.__proto__.constructor);   // function Function()
+            console.dir(Object.__proto__.__proto__.constructor === Object);  // true
+		</script>
+	</body>
+</html>

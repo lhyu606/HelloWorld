@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<form action="filereceive.php" enctype="multipart/form-data" method="post" id="form">
+			姓名：<input type="text" name="name" id="name"/><br /><br />
+			电话：<input type="text" name="phone" id="phone"/><br /><br />
+			<label>
+				<input id="file" type="file" name="file" multiple="multiple" />click here to upload a file
+			</label>
+			<br /><br />
+			<input type="submit" value="submit" id="smt"/>
+		</form>
+		<img src="" id="img"/>
+		<script type="text/javascript">
+			var form = document.getElementById('form');
+			var smt = document.getElementById("smt");
+			var fl = document.getElementById("file");
+			fl.onchange = function(e){
+				//e.preventDefault();
+				console.dir(fl)
+				//var img = new Image();
+				var img = document.getElementById("img");
+//				img.src = readAsBinaryString();
+				readAsBinaryString();
+				//document.body.append(img);
+				
+			}
+			function readAsBinaryString(){
+			    var file = document.getElementById('file').files[0];
+			    console.log(file)
+			    if(!file){
+			    	alert('请您选择一张图片');
+			    	img.src = "";
+			    	return;
+			    }
+			    var reader = new FileReader();
+			    //将文件以二进制形式读入页面   base64 编码
+			    reader.readAsDataURL(file);
+			    reader.onload=function(f){
+//			        console.log(f.currentTarget.result)
+			        //console.log($scope.masterInfo)
+			        var img = document.getElementById("img");
+			        img.src = f.currentTarget.result;//console.log(img)
+			    }
+			}
+			
+		</script>
+	</body>
+</html>

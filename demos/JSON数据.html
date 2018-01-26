@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>JSON 数据</title>
+		<style>
+			
+		</style>
+	</head>
+	<body>
+        <script>
+            /*
+            *    在JSON中，一共就这么几种数据类型：
+
+            *    number：和JavaScript的number完全一致；
+            *    boolean：就是JavaScript的true或false；
+            *    string：就是JavaScript的string；
+            *    null：就是JavaScript的null；
+            *    array：就是JavaScript的Array表示方式——[]；
+            *    object：就是JavaScript的{ ... }表示方式。
+            */
+            var obj = {
+                name: 'json',
+                json: true,
+                colors: ['red', 'green', 'blue'],
+                age: 9999,
+                null:null,
+                child: {
+                    name: 'job',
+                }
+
+            }
+            console.log(obj);
+            // JSON.stringify(arg1,arg2,arg3);;; arg1 对象, arg2 筛选, arg3 缩进内容,
+            console.log(JSON.stringify(obj,null,'  '));
+            
+            var jsonStr ='[{"age":12,"name":"merry","teacher":false,"job":null},{"age":11,"name":"job"},{"age":12,"name":"jack","imgs":["1.jpg","2.png","3.gif"]}]';
+            var strJson = JSON.parse(jsonStr);
+            console.log(strJson)
+            console.log(document.cookie);
+        </script>
+    </body>
+</html>
