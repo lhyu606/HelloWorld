@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,maximum-scale=1.0,user-scalable=no,initial-scale=1.0">  
+		<script>   
+			(function (doc, win) {
+	           var docEl = doc.documentElement,
+	               resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+	               recalc = function () {
+	                   var clientWidth = docEl.clientWidth;
+	                   if (!clientWidth) return;
+	                   if(clientWidth>=640){
+	                       docEl.style.fontSize = '100px';
+	                   }else{
+	                       docEl.style.fontSize = 100 * (clientWidth / 640) + 'px';
+	                  }
+	              };
+	  
+	          if (!doc.addEventListener) return;
+	          win.addEventListener(resizeEvt, recalc, false);
+	          doc.addEventListener('DOMContentLoaded', recalc, false);
+	      })(document, window);
+		</script> 
+		<title>首页</title>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<link rel="stylesheet" type="text/css" href="css/style.css"/>
+		<link rel="stylesheet" href="css/idangerous.swiper.css">
+	</head>
+	<body>
+	<div class="main" style="position:relative;">
+		<div class="header">
+			<div class="logo-wrapper">
+				<img src="img/logo.png" alt="logo" class="logo">
+			</div>
+			<div class="outin">
+				<a href="#">登录</a>|<a href="#">注册</a>
+			</div>
+		</div>
+		<div class="slider">
+			<div class="swiper-container">
+				<div class="swiper-wrapper">
+					<div class="swiper-slide"><img src="img/banner_1.jpg" alt="" class="slider-img"></div>
+					<div class="swiper-slide"><img src="img/banner_2.jpg" alt="" class="slider-img"></div>
+					<div class="swiper-slide"><img src="img/banner_3.jpg" alt="" class="slider-img"></div>
+				</div>
+			</div>			
+		</div>
+		<div class="announcement">
+			<ul class="ann-list">
+				<li class="ann-item">公告：建设银行系统维修 1</li>
+				<li class="ann-item">公告：建设银行系统维修 2</li>
+				<li class="ann-item">公告：建设银行系统维修 3</li>
+				<li class="ann-item">公告：建设银行系统维修 4</li>
+			</ul>
+		</div>
+		<div class="spilit-bar"></div>
+		<div class="fun-wrapper">
+			<div class="fun-item">
+				<p><img src="img/fn1.png" alt="订阅短信通知" class="fun-item-img"></p>
+				<p class="fun-item-text">订阅短信通知</p>
+			</div>
+			<div class="fun-item">
+				<p><img src="img/fn2.png" alt="添加微信客服" class="fun-item-img"></p>
+				<p class="fun-item-text">添加微信客服</p>
+			</div>
+			<div class="fun-item">
+				<p><img src="img/fn3.png" alt="项目回款公告" class="fun-item-img"></p>
+				<p class="fun-item-text">项目回款公告</p>
+			</div>			
+		</div>
+		<div class="spilit-bar"></div>
+		<div class="plat-wrapper">
+			<div class="plat-item">
+				<div class="plat-item-title title-icon1">
+					平台产品
+				</div>
+				<div class="plat-item-cara">
+					短期、小额
+				</div>
+				<div class="plat-item-desc">
+					<p class="income">预期最高年化收益11% </p>
+					<p class="instruct">平均产品周期 60-120 天，平均单个项 目总额小于 50 万。</p>
+				</div>
+			</div>
+			<div class="spilit-bar"></div>
+			<div class="plat-item active">
+				<div class="plat-item-title title-icon2">
+					安全保障
+				</div>
+				<div class="plat-item-cara">
+					政府监管、技术安全、法律保障
+				</div>
+				<div class="plat-item-desc">
+					<p class="income">预期最高年化收益11% </p>
+					<p class="instruct">平均产品周期 60-120 天，平均单个项 目总额小于 50 万。</p>
+				</div>
+			</div>
+			<div class="spilit-bar"></div>
+			<div class="plat-item active">
+				<div class="plat-item-title title-icon3">
+					关于我们
+				</div>
+				<div class="plat-item-cara">
+					平台数据、团队介绍
+				</div>
+				<div class="plat-item-desc">
+					<p class="income">预期最高年化收益11% </p>
+					<p class="instruct">平均产品周期 60-120 天，平均单个项 目总额小于 50 万。</p>
+				</div>
+			</div>
+			<div class="spilit-bar"></div>
+			<div class="plat-item active">
+				<div class="plat-item-title title-icon4">
+					帮助中心
+				</div>
+				<div class="plat-item-cara">
+					注册、投资、提现等帮助
+				</div>
+				<div class="plat-item-desc">
+					<p class="income">预期最高年化收益11% </p>
+					<p class="instruct">平均产品周期 60-120 天，平均单个项 目总额小于 50 万。</p>
+				</div>
+			</div>
+		</div>
+		<div class="spilit-bar"></div>
+	</div>
+		<div class="footer">
+			<div class="tab active">
+				<div class="tab-icon tab-icon1">
+					<!-- <img src="img/utab1.png" alt="首页" class="tab-icon-img"> -->
+				</div>
+				<div class="tab-text">
+					首页
+				</div>
+			</div>
+			<div class="tab">
+				<div class="tab-icon tab-icon2">
+					<!-- <img src="img/utab2.png" alt="投资" class="tab-icon-img"> -->
+				</div>
+				<div class="tab-text">
+					投资
+				</div>
+			</div>
+			<div class="tab">
+				<div class="tab-icon tab-icon3">
+					<!-- <img src="img/utab3.png" alt="账户" class="tab-icon-img"> -->
+				</div>
+				<div class="tab-text">
+					账户
+				</div>
+			</div>
+		</div>
+		<script src="js/jquery-1.8.1.min.js"></script>
+		<script src="js/bscroll.min.js"></script>
+		<script src="js/idangerous.swiper.min.js"></script>
+		<script src="js/index.js"></script>
+	
+	</body>
+</html>

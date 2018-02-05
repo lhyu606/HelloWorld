@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>iframe 通信之父页面</title>
+		<style>
+			/* #d1{height: 200px;width: 200px;border:1px solid #000000;} */
+            div{border: 1px solid #adf;padding: 10px;}
+		</style>
+	</head>
+	<body>
+	<div id="d1">
+        this is parent pages.... 
+        <div>
+            <input type="text" id="text">
+        </div>
+        <div>
+            <button id="send">发数据到子页面</button>
+        </div>
+        <div>
+            <button id="btn">调用子页面方法</button>
+        </div>
+        <div >
+            <iframe src="iframe通信01.html" id="child" name="child"></iframe>
+        </div>
+	</div>
+		<script>
+            var iframe = document.getElementById('child');
+            var btn = document.getElementById('btn');
+            var send = document.getElementById('send');
+            var text = document.getElementById('text');
+            var value = '';
+
+            btn.onclick = function(){
+                useChildFn();
+            }
+            send.onclick = function(){
+                sendToChild("考试几分？")
+            }
+
+            function sayHello(){
+                value = text.value ? text.value : 'nothing.';
+                console.log('parent say:\n' + value + '\n');
+            }
+            function useChildFn(){
+                // 使用 name 属性即可
+                child.window.sayHello();
+            }
+            function sendToChild(data){
+                child.window.receive(data);
+            }
+            function receive(data){
+                console.log("data from child:");
+                console.dir(data);
+            }
+		</script>
+	</body>
+</html>
