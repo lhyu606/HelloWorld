@@ -459,3 +459,101 @@
     console.log(entries.next().value); // [1, 'b']
     console.log(entries.next().value); // [2, 'c']
 }
+
+{
+   // entries()、keys()、values()、find()和findIndex()会将空位处理成undefined。
+
+    // entries()
+    [...[,'a'].entries()] // [[0,undefined], [1,"a"]]
+
+    // keys()
+    // [...[,'a'].keys()] // [0,1]
+
+    // values()
+    // [...[,'a'].values()] // [undefined,"a"]
+
+    // find()
+    // [,'a'].find(x => true) // undefined
+
+    // findIndex()
+    // [,'a'].findIndex(x => true) // 0
+}
+
+{
+    // 对象
+    const foo = 'bar';
+    const baz = {foo};
+    baz // {foo: "bar"}
+
+    // 等同于
+    // const baz = {foo: foo};
+
+    const o = {
+      method() {
+        return "Hello!";
+      }
+    };
+
+    // 等同于
+
+    // const o = {
+    //   method: function() {
+    //     return "Hello!";
+    //   }
+    // };
+
+    // 属性名表达式  [] 包裹
+    // 注意： 属性名表达式如果是一个对象，默认情况下会自动将对象转为字符串[object Object]
+    let obj = {};
+    obj['a' + 'bc'] = 123;
+
+    +0 === -0 //true
+    NaN === NaN // false
+
+    Object.is(+0, -0) // false
+    Object.is(NaN, NaN) // true
+
+    Object.is('foo', 'foo')
+    // true
+    Object.is({}, {})
+    // false
+
+    // ES5 可以通过下面的代码，部署Object.is。
+
+    Object.defineProperty(Object, 'is', {
+      value: function(x, y) {
+        if (x === y) {
+          // 针对+0 不等于 -0的情况
+          return x !== 0 || 1 / x === 1 / y;
+        }
+        // 针对NaN的情况
+        return x !== x && y !== y;
+      },
+      configurable: true,
+      enumerable: false,
+      writable: true
+    });
+}
+{
+    // Object.assign() 对象合并（浅拷贝） ，同名则后面覆盖前面
+    const target = { a: 1, b: 1 };
+
+    const source1 = { b: 2, c: 2 };
+    const source2 = { c: 3 };
+
+    Object.assign(target, source1, source2);
+    target // {a:1, b:2, c:3}
+    // undefined和null无法转成对象，所以如果它们作为首个参数，就会报错
+
+    Object.assign([1, 2, 3], [4, 5])
+// [4, 5, 3]
+}
+
+
+
+
+
+
+
+
+
