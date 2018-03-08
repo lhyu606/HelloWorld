@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    var person = {
+        id:5,
+        name : 'john',
+        copany:{
+            name:'zzy'
+        },
+        children:[
+            {
+                name:'child1',
+                age:18
+            },{
+                name:'child2',
+                age:12
+            }
+        ]
+    }
+    var newPerson = clone(person);
+    newPerson.name = 'mary';
+
+    function clone(object){
+        var result;
+        if(type(object) === 'Array'){
+            result = [];
+        }else if(type(object) === 'Object'){
+            result = {};
+        }else{
+            return result
+        }
+        for(var key in object){
+            if(type(object[key]) === 'Array' || type(object[key]) === 'Object'){
+                result[key] =clone(object[key]);
+            }else{
+                result[key] =object[key];
+            }
+
+        }
+        return result;
+    }
+    function type (obj){
+        return Object.prototype.toString.call(obj).slice(8,-1)
+    }
+    console.log(newPerson);
+</script>
+<script>
+    var data = { name: 'John', age: 23 };
+    var template = '<div>Hello, my name is {name}. I am {age} years old.</div>';
+
+    var html = renderTemplate(template, data);
+
+    // 应输出: <div>Hello, my name is John. I am 23 years old.</div>
+    console.log(html);
+
+    /**
+     * 渲染模板, 返回最终的字符串.
+     */
+    function renderTemplate(template, data) {
+        // TODO: 请实现此处代码
+        for(var key in data){
+            var template = template.replace(/{([^}]+)?}/g,function(s0,s1){
+                return data[s1]
+            });
+        }
+        return template;
+
+    }
+
+</script>
+<button id="btn">点我</button>
+<script>
+    function doWork(e) {
+        console.log('do work..');
+    }
+
+    document.getElementById('btn').onclick = function(e){
+        click()
+    }
+
+    var click = throttle(doWork,2000)
+    function throttle(fn,wait){
+        var flag = false,timer = null;
+        return function(){
+            if(!flag){
+                flag = true;
+                fn();
+                clearTimeout(timer);
+                timer = setTimeout(function(){
+                    flag = false;
+                },wait)
+            }
+        }
+    }
+</script>
+
+<script>
+    var events = {
+        eStack:[]
+    };
+    events.on = function(type,fn){
+       this.eStack.push({
+            type:type,
+            event:fn
+        });
+    }
+    events.publish = function(type,data){
+        for(var i= 0,len=this.eStack.length;i<len;i++){
+            if(this.eStack[i].type === type){
+                this.eStack[i].event(data);
+            }
+        }
+    }
+    events.on('order_placed',function(data){
+        console.log('send email for order: ' +
+                data.order_id);
+    })
+    events.on('order_placed', function (data) {
+        console.log('notify admin for order: ' +
+                data.order_id);
+    });
+    events.publish('order_placed', { order_id: 1024 });
+//    console.log(events)
+</script>
+</body>
+</html>
