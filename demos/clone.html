@@ -98,34 +98,45 @@
         }
     }
 </script>
-
+<button id='ent'>click</button>
 <script>
     var events = {
-        eStack:[]
+        eStack:{}
     };
     events.on = function(type,fn){
-       this.eStack.push({
-            type:type,
-            event:fn
-        });
+		 if(this.eStack[type]){
+			 this.eStack[type].push(fn)
+		}else{
+			this.eStack[type] = [fn];
+		}
+      
     }
     events.publish = function(type,data){
-        for(var i= 0,len=this.eStack.length;i<len;i++){
-            if(this.eStack[i].type === type){
-                this.eStack[i].event(data);
-            }
+        for(var i= 0,len=this.eStack[type].length;i<len;i++){
+           this.eStack[type][i](data);
         }
     }
+
     events.on('order_placed',function(data){
         console.log('send email for order: ' +
                 data.order_id);
     })
+	 
     events.on('order_placed', function (data) {
         console.log('notify admin for order: ' +
                 data.order_id);
     });
-    events.publish('order_placed', { order_id: 1024 });
-//    console.log(events)
+	 events.on('order', function (data) {
+        console.log('notify admin for order: ' +
+                data.order_id);
+    });
+	 
+		events.publish('order_placed', { order_id: 1024 });
+		console.log(events.eStack)
+	
 </script>
 </body>
 </html>
+
+
+加班跟效率直接挂钩，个人工作，在不懈怠的情况，能有效完成的工作量一定的，过量就会降低效率，但是在一些特殊情况，如遇到新问题，难题，紧急情况时，加班是必须的，就像是我们自我在闲时的改错，提升，成长，一定量的约束是会有促进成长的作用，如果员工努力工作，还是天天加班那就是工作量太大，说明公司缺人了，但是如果加班是公司上下认可的文化，就有利于公司发展，毕竟时间是紧迫的，比别人多走一步也能拥有巨大的优势
