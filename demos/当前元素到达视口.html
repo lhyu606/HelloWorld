@@ -1,0 +1,105 @@
+<!doctype>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
+		<style>
+			div{height: 400px;margin: 20px;padding: 5px 15px 10px 20px;border: 4px solid #adf;text-align: center;}
+		</style>
+	</head>
+	<body>
+		<div id="1">
+			1.投资券为投资抵扣券，如果您预计投资 2000 元，使用 20 元投资券，您投资券为投资抵扣券，如果您预计投资 2000 元，使用 20 元投资券，您实际支付金额为 1980 元；
+		</div>
+		<div id="2">
+			2.投资券为投资抵扣券，如果您预计投资 2000 元，使用 20 元投资券，您投资券为投资抵扣券，如果您预计投资 2000 元，使用 20 元投资券，您实际支付金额为 1980 元；
+		</div>
+		<div id="3">
+			3.投资券为投资抵扣券，如果您预计投资 2000 元，使用 20 元投资券，您投资券为投资抵扣券，如果您预计投资 2000 元，使用 20 元投资券，您实际支付金额为 1980 元；
+		</div>
+		<div id="4">
+			4.投资券为投资抵扣券，如果您预计投资 2000 元，使用 20 元投资券，您投资券为投资抵扣券，如果您预计投资 2000 元，使用 20 元投资券，您实际支付金额为 1980 元；
+		</div>
+		<div id="5">
+			5.投资券为投资抵扣券，如果您预计投资 2000 元，使用 20 元投资券，您投资券为投资抵扣券，如果您预计投资 2000 元，使用 20 元投资券，您实际支付金额为 1980 元；
+		</div>
+		<div id="6">
+			6.投资券为投资抵扣券，如果您预计投资 2000 元，使用 20 元投资券，您投资券为投资抵扣券，如果您预计投资 2000 元，使用 20 元投资券，您实际支付金额为 1980 元；
+		</div>
+		<script src="js/jquery-1.8.1.min.js"></script>
+		<script>
+
+	$(function(){
+		
+		$('div').each(function(){
+				test(this)
+		});
+		var bodyHeight = $('html').height();
+		function test(ele){
+		   var mydiv = ele;
+		   var mydivHeight = getAllHeight(ele);
+		   var mydivOffsetTop = getOffsetTop(ele);
+		   var scrollBT = document.body.scrollTop + window.innerHeight*1
+		   if( mydivOffsetTop  < scrollBT  &&  (mydivOffsetTop + mydivHeight) > document.body.scrollTop){
+		       //此时元素位于浏览器可视范围以外并且在“上方里面”
+				console.log('它出现了....',ele.id)
+		   }else if( mydivOffsetTop > scrollBT){
+		      //此时位于下方
+		     console.log('位于下方....',ele.id)
+		  }else if((mydivOffsetTop + mydivHeight) < document.body.scrollTop){
+		  	// 已经过去
+		  	 console.log('已经过去....',ele.id)
+		  }
+		}
+		// 获取高度
+		function getOffsetTop(el){
+			var height = 0;
+			while(el.nodeName != 'BODY'){
+				height += el.offsetTop;
+				el = el.parentElement;
+			}
+			return height;
+		}
+		// 监听滚动事件
+			document.onscroll = function(){
+				notAll();
+				console.log('-----------')
+			}
+
+		// 避免重复触发，提高性能
+		function _notAll(){
+			var flag = true;
+			var timer = null;
+			return function(){
+				if (flag) {
+					$('div').each(function(){
+						test(this)
+					});
+					flag = false;
+					timer = setTimeout(function(){
+						clearTimeout(timer);
+						flag = true;
+					},300)
+				};
+			}
+		}
+
+		var notAll = _notAll();
+		// 获取元素总高度
+		function getAllHeight(el){
+			var style = getComputedStyle(el)
+			var height = parseInt(style.height);
+			var paddingTop = parseInt(style.paddingTop);
+			var paddingBottom = parseInt(style.paddingBottom);
+			var marginTop = parseInt(style.marginTop);
+			var marginBottom = parseInt(style.marginBottom);
+
+			var allHeight = (paddingTop + paddingBottom + marginTop + marginBottom + height);
+			return allHeight;
+		};
+
+
+	})
+		</script>
+	</body>
+</html>
+
