@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+<title>CSS 子元素居中</title>
+<style>
+.father{width: 100px;height: 100px;border: 1px solid #eee;}
+.child{width: 45px;height: 60px;background: #dedede;}
+.outer1{position: relative;}
+.inner1{position: absolute;top: 50%;left: 50%;transform: translate(-22.5px, -30px);}
+.outer2{position: relative;}
+.inner2{position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%);}
+.outer3{display: flex;justify-content:center;align-items:center;}
+.inner3{}
+.outer4{display: table;}
+.inner4{display: table-cell;vertical-align: middle;text-align: center;}
+.content{display: inline-block;width: 30px;height: 48px;background: #adf;}
+</style>
+</head>
+<body >
+<div class='father outer1'>father
+	<div class='child inner1'>child
+	</div>
+</div>
+<div class='father outer2'>father
+	<div class='child inner2'>child
+	</div>
+</div>
+<div class='father outer3'>
+	<div class='child inner3'>
+	</div>
+</div>
+<div class='father outer4'>
+	<div class='child inner4'>
+		<div class='content'>aloha</div>
+	</div>
+</div>
+</body>
+</html>
