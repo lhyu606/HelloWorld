@@ -1,0 +1,139 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+<title>JS日期计算</title>
+<style>
+</style>
+</head>
+<body >
+<div id="outer">outer
+	<div id="middle">middle
+		<div id="inner">inner</div>
+	</div>
+</div>
+<script>
+// 获取今天的 0 时 0 分 0 秒
+var todayZero = new Date(new Date().toLocaleDateString());
+console.log("\n获取今天的 0 时 0 分 0 秒:");
+console.log(todayZero);
+
+// 获取一个月前的日期
+var monthAgo = new Date(new Date().setMonth(new Date().getMonth() - 1));
+console.log("\n获取一个月前的日期:");
+console.log(monthAgo);
+
+// 获取一个月前的 0 时 0 分 0 秒
+var monthAgoZero = new Date(new Date(new Date().toLocaleDateString()).setMonth(new Date().getMonth() - 1));
+console.log("\n获取一个月前的 0 时 0 分 0 秒:");
+console.log(monthAgoZero);
+
+// 获取一天前的日期
+var yesterday = new Date(new Date().setDate(new Date().getDate() - 1));
+console.log("\n获取一天前的日期:");
+console.log(yesterday);
+
+// 加一天
+var datetime = new Date();
+datetime = datetime.setDate(datetime.getDate() + 1);
+datetime = new Date(datetime);
+console.log("\n加一天：");
+console.log(datetime);
+
+// 减一天
+var datetime = new Date();
+datetime = datetime.setDate(datetime.getDate() - 1);
+datetime = new Date(datetime);
+console.log("\n减一天：");
+console.log('datetime');
+
+// 获取今天的 23 时 59 分 59 秒
+var todayLast = new Date(new Date(new Date().toLocaleDateString()).getTime() + 24 * 60 * 60 * 1000 - 1);
+console.log('\n获取今天的 23 时 59 分 59 秒:');
+console.log(todayLast);
+
+// 获取昨天的 23 时 59 分 59 秒
+var datetime = new Date();
+datetime = datetime.setDate(datetime.getDate() - 1);
+datetime = new Date(new Date(new Date(datetime).toLocaleDateString()).getTime() + 24 * 60 * 60 * 1000 - 1);
+console.log("\n获取昨天的 23 时 59 分 59 秒:");
+console.log(datetime);
+
+// 获取明天的 23 时 59 分 59 秒
+var datetime = new Date();
+datetime = datetime.setDate(datetime.getDate() + 1);
+datetime = new Date(new Date(new Date(datetime).toLocaleDateString()).getTime() + 24 * 60 * 60 * 1000 - 1);
+console.log('\n获取明天的 23 时 59 分 59 秒:');
+console.log(datetime);
+
+// 获取一个时间的第二天的 23 时 59 分 59 秒
+var curTime = 'Wed Nov 14 2018 17:38:31 GMT+0800 (中国标准时间)';
+var datetime = new Date(curTime);
+datetime = datetime.setDate(datetime.getDate() + 1);
+datetime = new Date(new Date(new Date(datetime).toLocaleDateString()).getTime() + 24 * 60 * 60 * 1000 -1);
+console.log('\n获取一个时间的第二天的 23 时 59 分 59 秒:');
+console.log('当时时间：Wed Nov 14 2018 17:38:31 GMT+0800 (中国标准时间)');
+console.log(datetime);
+
+// 获取当前时间等等昨天的 23 时 59 分 59 秒
+var curTime = 'Wed Nov 14 2018 17:38:31 GMT+0800 (中国标准时间)';
+var datetime = new Date(curTime);
+datetime = datetime.setDate(datetime.getDate() - 1);
+datetime = new Date(new Date(new Date(datetime).toLocaleDateString()).getTime() + 24 * 60 * 60 * 1000 -1);
+console.log('\n获取一个时间的第二天的 23 时 59 分 59 秒:');
+console.log('当时时间：Wed Nov 14 2018 17:38:31 GMT+0800 (中国标准时间)');
+console.log(datetime);
+
+// 距离活动截止还差几小时几分几秒（倒计时）
+var endTime = function (startTime) {
+	var timer = setInterval(
+		function () {
+			var str = '';
+			var date1 = new Date(startTime);
+			var date2 = new Date();
+			// 时间差的毫秒数
+			var date3 = date1.getTime() - date2.getTime();
+			if (date3 > 0 ){
+				// 计算相差的年数
+				// var years = Math.floor(date3 / (12 * 30 * 24 * 3600 * 1000));
+				// 计算相差的月数
+				var leave = date3 % (12 * 30 * 24 * 3600 *1000);
+				//var months = Math.floor(leave / (30 * 24 * 3600 * 1000));
+				// 计算相差的天数
+				var leave0 = leave % (30 * 24 * 3600 * 1000);
+				var days = Math.floor(date3 / (24 * 3600 * 1000));
+				//计算相差的小时数
+				var leave1  = leave0 % (24 * 3600 * 1000);
+				var hours = Math.floor(leave1 / (3600 * 1000));
+				// 计算相差的分钟数
+				var leave2 = leave1 % (3600 * 1000);
+				var minutes = Math.floor(leave2 / (60 * 1000));
+				// 计算相差的秒数
+				var leave3 = leave2 % (60 * 1000);
+				var seconds = Math.round(leave3 / 1000);
+				
+				if(days > 0) {
+					str += '<span>' + days + '</span>天';
+				}
+				if(hours > 0) {
+					str += '<span>' + hours + '</span>小时';
+				}
+				str += '<span>' + minutes + '</span>分钟 <span>' + seconds + '</span>秒';
+			} else {
+				str = '已过期';
+				// 清除定时器
+				clearInterval(timer);
+				timer = null;
+			}
+			console.log('开始时间：' + date1);
+			console.log(str);
+		},
+		1000
+	);
+}
+console.log('\n当前：' + new Date().toLocaleString());
+var startTime = new Date(new Date().setMinutes(new Date().getMinutes() + 1));
+endTime(startTime);
+</script>
+</body>
+</html>
